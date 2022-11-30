@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while [ "true" ]
+do
+  VPNCON=$(nmcli con show --active | grep -i vpn)
+  if [[ -z "$VPNCON" ]]; then
+    echo "Disconnected, trying to reconnect..."
+    (sleep 1s && nmcli con up uuid `YOUR VPN CONNECTION UUID`)
+  else
+    echo "Already connected!"
+  fi
+  sleep 20
+done

@@ -1,0 +1,248 @@
+""
+"" Author: Filemon Mateus
+"" Repo  : https://github.com/filemonmateus/dotfiles
+"" Date  : 17 January 2019
+""
+
+"""" Useful plugins {{{
+  call plug#begin('~/.vim/plugged')
+    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'justinmk/vim-syntax-extra'
+    Plug 'tpope/vim-commentary'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'ervandew/supertab'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug '/usr/local/opt/fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'lilydjwg/colorizer'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'bfrg/vim-cpp-modern'
+    Plug 'vim-python/python-syntax'
+    Plug 'lervag/vimtex'
+    Plug 'tpope/vim-surround'
+  call plug#end()
+""" }}}
+
+""" LaTeX settings {{{
+  let g:tex_no_error=1
+  let g:tex_flavor='latex'
+  " let g:vimtex_view_method='zathura'
+  let g:vimtex_quickfix_mode=0
+""" }}}
+
+""" Git Gutter Sign and Symbols {{{
+  let g:gitgutter_sign_added='+'
+  let g:gitgutter_sign_modified='~'
+  let g:gitgutter_sign_removed='-'
+""" }}}
+
+""" Term gui colors {{{
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+""" }}}
+
+""" Statusline {{{
+  let g:currentmode={
+    \'n'      : 'N',
+    \'no'     : 'N-Operator Pending',
+    \'v'      : 'V',
+    \'V'      : 'V-Line',
+    \"\<C-V>" : 'V-Block',
+    \'s'      : 'S',
+    \'S'      : 'S-Line',
+    \"\<C-S>" : 'S-Block.',
+    \'i'      : 'I',
+    \'ic'     : 'I-Compl',
+    \'ix'     : 'I-X-Compl',
+    \'R'      : 'R',
+    \'Rc'     : 'Compl-Replace',
+    \'Rx'     : 'V-Replace',
+    \'Rv'     : 'X-Compl-Replace',
+    \'c'      : 'Command',
+    \'cv'     : 'Vim Ex',
+    \'ce'     : 'Ex',
+    \'r'      : 'Propmt',
+    \'rm'     : 'More',
+    \'r?'     : 'Confirm',
+    \'!'      : 'Sh',
+    \'t'      : 'T',
+  \}
+
+  function! FileSize()
+    let bytes = getfsize(expand('%:p'))
+    if (bytes >= 1024)
+      let kbytes = bytes / 1024
+    endif
+    if (exists('kbytes') && kbytes >= 1024)
+      let mbytes = kbytes / 1024
+    endif
+    if bytes < 0
+      return '0KB'
+    endif
+    if (exists('mbytes'))
+      return mbytes . 'MB'
+    elseif (exists('kbytes'))
+      return kbytes . 'KB'
+    else
+      return bytes . 'KB'
+    endif
+  endfunction
+
+  function! GetIcon(key) abort
+    let l:ICONS = {
+      \'lock': '',
+    \}
+    return get(l:ICONS, a:key, a:key)
+  endfunction
+
+  function! ReadOnly() abort
+    if !&modifiable && &readonly
+      return GetIcon('lock') . ' RO '
+    elseif &modifiable && &readonly
+      return 'RO '
+    elseif !&modifiable && !&readonly
+      return GetIcon('lock') . ' '
+    else
+      return ''
+    endif
+  endfunction
+
+  set laststatus=2
+  set statusline=
+  set statusline+=%0*\ %{toupper(g:currentmode[mode()])}
+  set statusline+=%0*\ \ [%n]
+  set statusline+=%0*\ \ %<%t\ \ %{ReadOnly()}%m
+  set statusline+=%*
+  set statusline+=%0*\ %=
+  set statusline+=%0*\ \ %y
+  set statusline+=%0*\ \ %-3(%{FileSize()}%)
+  set statusline+=%0*\ \ %p%%\ \ \ %l\ \ \ %c\ 
+""" }}}
+
+""" Python syntax highlight {{{
+  let g:python_highlight_all=1
+  let g:python_highlight_file_headers_as_comments=1
+""" }}}
+
+""" UltiSnippets and SuperTab {{{
+  let g:UltiSnipsExpandTrigger='<tab>'
+  let g:UltiSnipsJumpForwardTrigger='<tab>'
+  let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
+  let g:UltiSnipsSnippetDirectories=['snips']
+  let g:SuperTabDefaultCompletionType='<C-n>'
+""" }}}
+
+""" Visual configs {{{
+  syntax on
+  set t_Co=256
+  set guicursor=
+  set cursorline
+  set encoding=utf8
+  set tabstop=2
+  set pumheight=5
+  set shiftwidth=2
+  set expandtab
+  set noswapfile
+  set breakindent
+  set softtabstop=2
+  set autoindent
+  set splitright
+  set splitbelow
+  set backspace=indent,eol,start
+  set completeopt-=preview
+  set foldmethod=indent
+  set foldnestmax=10
+  set nofoldenable
+  set foldlevel=2
+  set undofile
+  set undodir=~/.config/vim/tmp
+  set fillchars+=vert:│
+  set clipboard=unnamed
+""" }}}
+
+""" Fzf config {{{
+  function! s:fzf_statusline()
+    highlight fzf1 guifg=#e9e8ea  guibg=#005f87
+    highlight fzf2 guifg=#e9e8ea  guibg=#005f87
+    highlight fzf3 guifg=#e9e8ea  guibg=#005f87
+    setlocal statusline=%#fzf1#\ %#fzf2#fz%#fzf3#f
+  endfunction
+
+  autocmd! User FzfStatusLine call <SID>fzf_statusline()
+  map <C-p> :Files<CR>
+  let g:fzf_layout={ 'down': '~70%' }
+  command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, {'options': [ '--prompt',  '> ', '--preview', 'COLORTERM=truecolor bat --theme=Light --color=always {}' ]}, <bang>0)
+""" }}}
+
+""" Papercolor configs {{{
+  let g:PaperColor_Theme_Options = {
+    \'theme': {
+      \'default': {
+        \'transparent_background': 1,
+        \'allow_bold': 1,
+        \'allow_italic': 0,
+        \'override': {
+          \'color00': ['#e9e8ea', ''],
+          \'color05': ['#a5a5a5', ''],
+          \'color07': ['#616162', ''],
+          \'todo_bg': ['#e6e5e7', ''],
+          \'cursor_fg': ['#af5f00', ''],
+          \'cursor_bg': ['#d4d4d4', ''],
+          \'cursorline': ['#e6e5e7', ''],
+          \'vertsplit_fg': ['#d4d4d4', ''],
+          \'vertsplit_bg': ['#e9e8ea', ''],
+          \'linenumber_bg': ['#e9e8ea', ''],
+          \'matchparen_fg': ['#af5f00', ''],
+          \'matchparen_bg': ['#d4d4d4', ''],
+          \'cursorcolumn': ['#e6e5e7', ''],
+          \'cursorlinenr_bg': ['#e6e5e7', '']
+        \}
+      \}
+    \},
+    \'language': {
+      \'python': {
+        \'highlight_builtins': 1
+      \},
+      \'cpp': {
+        \'highlight_standard_library': 1
+      \},
+      \'c': {
+        \'highlight_builtins': 1
+      \}
+    \}
+  \}
+""" }}}
+
+""" Global theme {{{
+  let &t_SI="\e[6 q"
+  let &t_EI="\e[2 q"
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set background=light
+  colorscheme PaperColor
+
+  " Aesthetic settings for transparent backgrounds
+  highlight Normal     guibg=#e9e8ea
+  highlight LineNr     guibg=#e9e8ea
+  highlight NonText    guibg=#e9e8ea
+  highlight SignColumn guibg=#e9e8ea
+
+   " Git gutter colors conf
+  highlight GitGutterAdd    guifg=#008700 guibg=#e9e8ea
+  highlight GitGutterChange guifg=#c18401 guibg=#e9e8ea
+  highlight GitGutterDelete guifg=#d63b0c guibg=#e9e8ea
+
+  " General theme colors
+  highlight Conceal guibg=NONE guifg=#616162
+  highlight NonText cterm=NONE guifg=#d4d4d4
+  highlight SpellBad cterm=UNDERLINE guifg=#d63b0c guibg=#e9e8ea
+  highlight SpellCap cterm=UNDERLINE guifg=#c18401 guibg=#e9e8ea
+  highlight StatusLine cterm=NONE gui=NONE guifg=#e9e8ea guibg=#005f87
+  highlight multiple_cursors_cursor guibg=#d4d4d4
+  highlight multiple_cursors_visual guibg=#d4d4d4
+""" }}}

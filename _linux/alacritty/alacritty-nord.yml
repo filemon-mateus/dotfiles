@@ -1,0 +1,60 @@
+env:
+  COLORSCHEME: Nord
+  TERM: xterm-256color
+
+background_opacity: 1.0
+
+window:
+  decorations: none
+  startup_mode: Maximized
+  padding:
+    x: 8
+    y: 8
+
+cursor:
+  style: Block
+
+live_config_reload: true
+draw_bold_text_with_bright_colors: false
+
+font:
+  normal:
+    family: mononoki
+    style: Regular
+  bold:
+    family: mononoki
+    style: Bold
+  size: 8.0
+  offset:
+    x: 0
+    y: 10
+  glyph_offset:
+    x: 0
+    y: 5
+  use_thin_strokes: true
+
+colors:
+  primary:
+    background: '0x12161e'
+    foreground: '0x6a8998'
+  cursor:
+    text: '0x12161e'
+    cursor: '0x6a8998'
+  normal:
+    black: '0x12161e'
+    red: '0xcc2846'
+    green: '0x76af5f'
+    yellow: '0xf6b655'
+    blue: '0x4c87b4'
+    magenta: '0xae6698'
+    cyan: '0x4faba6'
+    white: '0x6a8998'
+  bright:
+    black: '0x2a374e'
+    red: '0xcc2846'
+    green: '0x76af5f'
+    yellow: '0xf6b655'
+    blue: '0x4c87b4'
+    magenta: '0xae6698'
+    cyan: '0x3bb9c5'
+    white: '0x1e2736'

@@ -1,0 +1,33 @@
+!! Font configs
+Xft.antialias: 1
+Xft.autohint:  1
+Xft.hinting:   1
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
+Xft.dpi:       200
+
+!! Font names
+URxvt.font: xft:PragmataPro Mono Liga:size=18
+URxvt.scrollBar: false
+
+!! Nord colorscheme
+URxvt*background:     #12161e
+URxvt*foreground:     #6a8998
+URxvt*cursorcolor:    #6a8998
+URxvt*color0:         #12161e
+URxvt*color8:         #2a374e
+URxvt*color1:         #cc2846
+URxvt*color9:         #cc2846
+URxvt*color2:         #76af5f
+URxvt*color10:        #76af5f
+URxvt*color3:         #f6b655
+URxvt*color11:        #f6b655
+URxvt*color4:         #4c87b4
+URxvt*color12:        #4c87b4
+URxvt*color5:         #ae6698
+URxvt*color13:        #ae6698
+URxvt*color6:         #4faba6
+URxvt*color14:        #3bb9c5
+URxvt*color7:         #6a8998
+URxvt*color15:        #141d2c

@@ -1,0 +1,50 @@
+# ACCOUNT INFORMATION
+IMAPAccount gmail
+Host imap.gmail.com
+User filemon.mateus@gmail.com
+PassCmd "security find-internet-password -s 'imap.gmail.com' -a 'filemon.mateus@gmail.com' -w"
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /usr/local/etc/openssl/certs/certificates.pem
+AuthMechs LOGIN
+
+# REMOTE STORAGE
+IMAPStore gmail-remote
+Account gmail
+
+# LOCAL STORAGE
+MaildirStore gmail-local
+Path ~/Mail/Gmail/
+Inbox ~/Mail/Gmail/Inbox
+
+# CONNECTIONS BETWEEN REMOTE AND LOCAL FOLDERS
+Channel gmail-inbox
+Master :gmail-remote:"[Google Mail]/Inbox"
+Slave :gmail-local:inbox
+Create Both
+Expunge Both
+
+Channel gmail-sent
+Master :gmail-remote:"[Google Mail]/Sent"
+Slave :gmail-local:sent
+Create Both
+Expunge Both
+
+Channel gmail-drafts
+Master :gmail-remote:"[Google Mail]/Drafts"
+Slave :gmail-local:drafts
+Create Both
+Expunge Both
+
+Channel gmail-trash
+Master :gmail-remote:"[Google Mail]/Trash"
+Slave :gmail-local:trash
+Create Both
+Expunge Both
+
+# INVOKES MBSYNC ON A GROUP TO SYNC ALL CHANNELS CONCURRENTLY
+Group gmail
+Channel gmail-inbox
+Channel gmail-sent
+Channel gmail-drafts
+Channel gmail-trash

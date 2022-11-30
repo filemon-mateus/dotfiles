@@ -1,0 +1,55 @@
+env:
+  TERM: xterm-256color
+
+background_opacity: 1.0
+
+window:
+  decorations: none
+  startup_mode: Maximized
+  padding:
+    x: 8
+    y: 8
+
+cursor:
+  style: Block
+
+live_config_reload: true
+draw_bold_text_with_bright_colors: true
+
+font:
+  normal:
+    family: PragmataPro Mono Liga
+  size: 8.0
+  offset:
+    x: 0
+    y: 12
+  glyph_offset:
+    x: 0
+    y: 6
+  use_thin_strokes: true
+
+colors:
+  primary:
+    background: '0xe9e8ea'
+    foreground: '0x616162'
+  cursor:
+    text: '0xaf5f00'
+    cursor: '0xd4d4d4'
+  normal:
+    black:   '0xe9e8ea'
+    red:     '0xd63b0c'
+    green:   '0x008700'
+    yellow:  '0xc18401'
+    blue:    '0x005f87'
+    magenta: '0x8700af'
+    cyan:    '0x56b6c2'
+    white:   '0xe9e8ea'
+  bright:
+    black:   '0x9b999c'
+    red:     '0xd63b0c'
+    green:   '0x008700'
+    yellow:  '0xc18401'
+    blue:    '0x005f87'
+    magenta: '0x8700af'
+    cyan:    '0x56b6c2'
+    white:   '0xd4d4d4'

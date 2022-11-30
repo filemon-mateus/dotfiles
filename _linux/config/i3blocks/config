@@ -1,0 +1,38 @@
+full_text= ▏
+align=center
+color=#2a374e
+separator=false
+separator_block_width=10
+
+[DISK]
+command=df -h / | awk '/\//{ printf("SSD:%4s/%s", $4, $2) }'
+interval=2
+color=#6a8998
+
+[SEPARATOR]
+
+[BATTERY]
+command=~/.config/i3blocks/battery/battery_info.sh
+interval=3
+
+[SEPARATOR]
+
+[CPU]
+full_text= CPU: 0.00%
+command=~/.config/i3blocks/cpu/cpu_info.sh
+interval=repeat
+color=#00B4EB
+
+[SEPARATOR]
+
+[MEM]
+command=free -h | awk '/Mem:/ { printf("MEM: %5s/%s", $3, $2) }'
+interval=1
+color=#f6b655
+
+[SEPARATOR]
+
+[TIME_DATE]
+command=date +"%Z: %-I:%M %p "
+interval=1
+color=#76af5f
