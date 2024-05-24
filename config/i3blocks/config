@@ -1,0 +1,16 @@
+full_text= ▏
+align=center
+color=#2B2B2B
+separator=false
+separator_block_width=10
+
+[BATTERY]
+command=~/.config/i3blocks/battery/info.sh
+interval=3
+
+[SEPARATOR]
+
+[TIME_DATE]
+command=date +"%H:%M "
+interval=1
+color=#3C3C3C
