@@ -23,7 +23,7 @@
 
 # exports {{{
   export ZSH=$HOME/.oh-my-zsh
-  export LS_COLORS='fi=32:pi=33:cd=33:di=34:so=31:ln=35:ex=33:bd=33:or=31'
+  export LS_COLORS='fi=32:pi=33:cd=33:di=34;04:so=31:ln=35:ex=33:bd=33:or=31'
   source $ZSH/oh-my-zsh.sh
 # }}}
 
