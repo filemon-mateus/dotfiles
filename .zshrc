@@ -35,10 +35,6 @@
   alias paper='cp $HOME/Dropbox/dotfiles/_linux/vim/paper.vim $HOME/.vimrc'
 # }}}
 
-# solarized colorscheme {{{
-  alias solarized='cp $HOME/Dropbox/dotfiles/_linux/vim/solarized.vim $HOME/.vimrc'
-# }}}
-
 # molokai colorscheme {{{
   alias molokai='cp $HOME/Dropbox/dotfiles/_linux/vim/molokai.vim $HOME/.vimrc'
 # }}}
