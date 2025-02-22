@@ -1,22 +1,18 @@
 """ useful plugins {{{
-  call plug#begin('~/.vim/plugged')
+  call plug#begin('$HOME/.vim/plugged')
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'arcticicestudio/nord-vim'
     Plug 'tomasr/molokai'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'justinmk/vim-syntax-extra'
     Plug 'tpope/vim-commentary'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'ervandew/supertab'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'lilydjwg/colorizer'
     Plug 'airblade/vim-gitgutter'
+    Plug 'justinmk/vim-syntax-extra'
     Plug 'bfrg/vim-cpp-modern'
     Plug 'vim-python/python-syntax'
-    Plug 'tpope/vim-surround'
-    Plug 'lervag/vimtex'
   call plug#end()
 """ }}}
 
@@ -46,7 +42,6 @@
   let g:UltiSnipsJumpForwardTrigger='<tab>'
   let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
   let g:UltiSnipsSnippetDirectories=['ultisnips']
-  let g:SuperTabDefaultCompletionType='<C-n>'
 """ }}}
 
 """ visual configs {{{
@@ -76,11 +71,4 @@
   set fillchars+=vert:│
   set clipboard=unnamedplus
   set mouse=a
-""" }}}
-
-""" cursor {{{
-  let &t_SI="\e[6 q"
-  let &t_EI="\e[2 q"
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 """ }}}

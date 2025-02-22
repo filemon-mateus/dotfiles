@@ -287,7 +287,7 @@ fun! s:acquire_theme_data()
       \'default': {
         \'transparent_background': 1,
         \'allow_bold': 1,
-        \'allow_italic': 1,
+        \'allow_italic': 0,
         \'override': {
           \'color00': ['#e9e8ea', '255'],
           \'color05': ['#a5a5a5', '102'],

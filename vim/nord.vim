@@ -1,7 +1,6 @@
 """ source base.vim {{{
-  source ~/Dropbox/dotfiles/_linux/vim/base.vim
+  source $HOME/Dropbox/dotfiles/vim/base.vim
 """ }}}
-
 """ global theme {{{
   colorscheme nord
 """ }}}
