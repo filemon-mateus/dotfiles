@@ -1,7 +1,7 @@
 """ useful plugins {{{
   call plug#begin('$HOME/.vim/plugged')
 		Plug 'lifepillar/vim-solarized8'
-    Plug 'christoomey/vim-tmux-navigator'
+		Plug 'christoomey/vim-tmux-navigator'
   call plug#end()
 """ }}}
 
