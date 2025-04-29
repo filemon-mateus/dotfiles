@@ -2,5 +2,5 @@
 	source $HOME/Dropbox/dotfiles/vim/base.vim
 """ }}}
 """ global theme {{{
-	colorscheme PaperColor
+	set background=light
 """ }}}

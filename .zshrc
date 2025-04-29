@@ -17,25 +17,18 @@
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # }}}
 
-# nord {{{
-  alias nord='
-  ln -sf $HOME/Dropbox/dotfiles/kitty/nord.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
-  ln -sf $HOME/Dropbox/dotfiles/bat/nord.conf $HOME/.config/bat/bat.conf
-  ln -sf $HOME/Dropbox/dotfiles/vim/nord.vim $HOME/.vimrc'
+# light {{{
+  alias light='
+  ln -sf $HOME/Dropbox/dotfiles/kitty/light.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
+  ln -sf $HOME/Dropbox/dotfiles/bat/light.conf $HOME/.config/bat/bat.conf
+  ln -sf $HOME/Dropbox/dotfiles/vim/light.vim $HOME/.vimrc'
 # }}}
 
-# paper {{{
-  alias paper='
-  ln -sf $HOME/Dropbox/dotfiles/kitty/paper.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
-  ln -sf $HOME/Dropbox/dotfiles/bat/paper.conf $HOME/.config/bat/bat.conf
-  ln -sf $HOME/Dropbox/dotfiles/vim/paper.vim $HOME/.vimrc'
-# }}}
-
-# molokai {{{
-  alias molokai='
-  ln -sf $HOME/Dropbox/dotfiles/kitty/molokai.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
-  ln -sf $HOME/Dropbox/dotfiles/bat/molokai.conf $HOME/.config/bat/bat.conf
-  ln -sf $HOME/Dropbox/dotfiles/vim/molokai.vim $HOME/.vimrc'
+# dark {{{
+  alias dark='
+  ln -sf $HOME/Dropbox/dotfiles/kitty/dark.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
+  ln -sf $HOME/Dropbox/dotfiles/bat/dark.conf $HOME/.config/bat/bat.conf
+  ln -sf $HOME/Dropbox/dotfiles/vim/dark.vim $HOME/.vimrc'
 # }}}
 
 # bat config file {{{
