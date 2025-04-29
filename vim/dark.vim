@@ -1,6 +1,6 @@
 """ source base.vim {{{
 	source $HOME/Dropbox/dotfiles/vim/base.vim
 """ }}}
-""" global theme {{{
+""" dark theme {{{
 	set background=dark
 """ }}}
