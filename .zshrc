@@ -6,7 +6,7 @@
 # }}}
 
 # z-shell persistent, global settings {{{
-  ZSH_THEME="robbyrussell"
+  ZSH_THEME="prompt"
 # }}}
 
 # ls colors {{{
