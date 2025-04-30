@@ -17,18 +17,13 @@
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # }}}
 
-# light {{{
-  alias light='
-  ln -sf $HOME/Dropbox/dotfiles/kitty/light.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
-  ln -sf $HOME/Dropbox/dotfiles/bat/light.conf $HOME/.config/bat/bat.conf
-  ln -sf $HOME/Dropbox/dotfiles/vim/light.vim $HOME/.vimrc'
-# }}}
-
-# dark {{{
-  alias dark='
-  ln -sf $HOME/Dropbox/dotfiles/kitty/dark.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
-  ln -sf $HOME/Dropbox/dotfiles/bat/dark.conf $HOME/.config/bat/bat.conf
-  ln -sf $HOME/Dropbox/dotfiles/vim/dark.vim $HOME/.vimrc'
+# themes {{{
+for theme in light dark; do
+  alias $theme="
+  ln -sf $HOME/Dropbox/dotfiles/kitty/$theme.conf $HOME/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID
+  ln -sf $HOME/Dropbox/dotfiles/bat/$theme.conf $HOME/.config/bat/bat.conf
+  ln -sf $HOME/Dropbox/dotfiles/vim/$theme.vim $HOME/.vimrc"
+done
 # }}}
 
 # bat config file {{{
